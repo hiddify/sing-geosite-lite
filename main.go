@@ -88,6 +88,7 @@ func parse(vGeositeData []byte) (map[string][]geosite.Item, error) {
 	}
 	domainMap := make(map[string][]geosite.Item)
 	for _, vGeositeEntry := range vGeositeList.Entry {
+		os.Stderr.WriteString("vGeositeEntry " + vGeositeEntry.CountryCode + " " + vGeositeEntry.Domain + " " + vGeositeEntry + "\n")
 		code := strings.ToLower(vGeositeEntry.CountryCode)
 		domains := make([]geosite.Item, 0, len(vGeositeEntry.Domain)*2)
 		attributes := make(map[string][]*routercommon.Domain)
