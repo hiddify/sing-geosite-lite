@@ -57,7 +57,7 @@ func download(release *github.RepositoryRelease) ([]byte, error) {
 		return *it.Name == "hiddify-geosite.dat"
 	})
 	geositeChecksumAsset := common.Find(release.Assets, func(it *github.ReleaseAsset) bool {
-		return *it.Name == "hiddify-geosite.sha256sum"
+		return *it.Name == "hiddify-geosite.dat.sha256sum"
 	})
 	if geositeAsset == nil {
 		return nil, E.New("geosite asset not found in upstream release ", release.Name)
