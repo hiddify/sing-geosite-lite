@@ -192,7 +192,7 @@ func generate(release *github.RepositoryRelease, output string) error {
 		keys = append(keys, code)
 	}
 	sort.Strings(keys)
-	os.Stderr.WriteString("write " + keys + "\n")
+	fmt.Fprintf(os.Stderr, "keys: %v\n", keys)
 	return geosite.Write(outputFile, domainMap)
 }
 
