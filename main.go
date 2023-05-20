@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
+	"fmt"
 	"github.com/google/go-github/v45/github"
 	"github.com/sagernet/sing-box/common/geosite"
 	"github.com/sagernet/sing/common"
