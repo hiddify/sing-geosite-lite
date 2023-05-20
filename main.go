@@ -186,6 +186,12 @@ func generate(release *github.RepositoryRelease, output string) error {
 	fmt.Fprintf(os.Stderr, "domainMap: %v\n", domainMap)
 	outputPath, _ := filepath.Abs(output)
 	os.Stderr.WriteString("write " + outputPath + "\n")
+	keys := make([]string, 0, len(domainMap))
+	for code := range domainMap {
+		keys = append(keys, code)
+	}
+	sort.Strings(keys)
+	os.Stderr.WriteString("write " + keys + "\n")
 	return geosite.Write(outputFile, domainMap)
 }
 
