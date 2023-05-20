@@ -89,8 +89,8 @@ func parse(vGeositeData []byte) (map[string][]geosite.Item, error) {
 	domainMap := make(map[string][]geosite.Item)
 	for _, vGeositeEntry := range vGeositeList.Entry {
 		os.Stderr.WriteString("vGeositecode " + vGeositeEntry.CountryCode + "\n")
-		fmt.Fprintf(os.Stderr, "vGeositeEntry: %v\n", vGeositeEntry)
-		fmt.Fprintf(os.Stderr, "vGeositeDomain: %v\n", vGeositeEntry.Domain)
+		//fmt.Fprintf(os.Stderr, "vGeositeEntry: %v\n", vGeositeEntry)
+		//fmt.Fprintf(os.Stderr, "vGeositeDomain: %v\n", vGeositeEntry.Domain)
 
 		code := strings.ToLower(vGeositeEntry.CountryCode)
 		domains := make([]geosite.Item, 0, len(vGeositeEntry.Domain)*2)
@@ -183,6 +183,7 @@ func generate(release *github.RepositoryRelease, output string) error {
 	if err != nil {
 		return err
 	}
+	fmt.Fprintf(os.Stderr, "domainMap: %v\n", domainMap)
 	outputPath, _ := filepath.Abs(output)
 	os.Stderr.WriteString("write " + outputPath + "\n")
 	return geosite.Write(outputFile, domainMap)
