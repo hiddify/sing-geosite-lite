@@ -224,7 +224,7 @@ func release(source string, destination string, output string) error {
 }
 
 func main() {
-	err := release("hiddify/domain-list-community", "hiddify/sing-geosite", "geosite.db")
+	err := release("hiddify/domain-list-community-lite", "hiddify/sing-geosite-lite", "geosite.db")
 	if err != nil {
 		logrus.Fatal(err)
 	}
